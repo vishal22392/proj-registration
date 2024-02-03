@@ -223,12 +223,12 @@
   <prerequisites>
     <maven>3.0.3</maven>
   </prerequisites>
-<distributionManagement>
+  <distributionManagement>
     <repository>
         <id>central</id>
         <name>8ed600912a73-releases</name>
         <url>http://65.0.107.21:8082/artifactory/libs-release</url>
     </repository>
-</distributionManagement>
+  </distributionManagement>
 
 </project>
