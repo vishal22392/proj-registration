@@ -37,7 +37,8 @@ pipeline {
               withSonarQubeEnv('SonarQube-Server') {
                 dir('webapp'){
                 sh 'mvn -U clean install sonar:sonar'
-              }
+                }
+              }  
             }
         }
         stage("Quality Gate") {
