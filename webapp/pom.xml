@@ -42,16 +42,4 @@
       <scope>provided</scope>
     </dependency>
   </dependencies>
-<distributionManagement>
-    <repository>
-        <id>central</id>
-        <name>4cb8ca21f5d1-releases</name>
-        <url>http://13.234.76.173:8081/artifactory/libs-release-e</url>
-    </repository>
-    <snapshotRepository>
-        <id>snapshots</id>
-        <name>4cb8ca21f5d1-snapshots</name>
-        <url>http://13.234.76.173:8081/artifactory/libs-release-e</url>
-    </snapshotRepository>
-</distributionManagement>
 </project>
