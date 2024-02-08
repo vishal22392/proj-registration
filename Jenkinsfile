@@ -32,12 +32,12 @@ pipeline {
                 }
             }
         }
-        stage("Sonarqube Analysis") {
+        stage ('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('SonarQube-Server') {
-                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Registration-App \
-                    -Dsonar.projectKey=Registration-App'''
-                }
+              withSonarQubeEnv('SonarQube-Server') {
+                dir('webapp'){
+                sh 'mvn -U clean install sonar:sonar'
+              }
             }
         }
         stage("Quality Gate") {
