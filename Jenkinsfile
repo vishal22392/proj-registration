@@ -28,7 +28,7 @@ pipeline {
         stage ('Build')  {
 	        steps {
                 dir('webapp'){
-                sh "mvn package"
+                sh "/usr/share/maven/bin/mvn -U deploy"
                 }
             }
         }
@@ -47,46 +47,6 @@ pipeline {
                 }
             }
         }
-        stage ('Artifactory configuration') {
-            steps {
-                rtServer (
-                    id: "jfrog",
-                    url: "http://13.234.76.173:8082/artifactory",
-                    credentialsId: "jfrog"
-                )
-
-                rtMavenDeployer (
-                    id: "MAVEN_DEPLOYER",
-                    serverId: "jfrog",
-                    releaseRepo: "libs-release-local",
-                    snapshotRepo: "libs-snapshot-local"
-                )
-
-                rtMavenResolver (
-                    id: "MAVEN_RESOLVER",
-                    serverId: "jfrog",
-                    releaseRepo: "libs-release",
-                    snapshotRepo: "libs-snapshot"
-                )
-            }
-        }
-        stage ('Deploy Artifacts') {
-            steps {
-                rtMavenRun (
-                    tool: "maven", 
-                    pom: 'webapp/pom.xml',
-                    goals: 'clean install',
-                    deployerId: "MAVEN_DEPLOYER",
-                    resolverId: "MAVEN_RESOLVER"
-                )
-            }
-        }
-        stage ('Publish build info') {
-            steps {
-                rtPublishBuildInfo (
-                    serverId: "jfrog"
-             )
-            }
-        }
+        
     }
 }    
