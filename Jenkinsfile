@@ -122,6 +122,19 @@ pipeline {
                  }
              }
          }
+         stage('Deploy to Kubernets'){
+             steps{
+                 script{
+                      dir('Kubernetes') {
+                         withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kubernetes', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
+                         sh 'kubectl apply -f deployment.yml'
+                         sh 'kubectl apply -f service.yml'
+                         sh 'kubectl rollout restart deployment.apps/registerapp-deployment'
+                         }   
+                      }
+                 }
+             }
+         }
         
     }
 }    
