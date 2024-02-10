@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: register-app
+  name: registerapp-deployment
   labels:
     app: register-app
 spec:
@@ -17,7 +17,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
       - name: register-app
-        image: ashfaque9x/swiggy-clone:latest
+        image: ashfaque9x/java-registration-app:latest
         imagePullPolicy: "Always"
         ports:
         - containerPort: 8080
