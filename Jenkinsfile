@@ -106,7 +106,6 @@ pipeline {
                      }
                  }
              }
-         }
          stage("Trivy Image Scan") {
              steps {
                  script {
@@ -122,7 +121,7 @@ pipeline {
                  }
              }
          }
-         stage('Deploy to Kubernets'){
+/*        stage('Deploy to Kubernets'){
              steps{
                  script{
                       dir('Kubernetes') {
@@ -148,3 +147,4 @@ pipeline {
             attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
       }
     }    
+*/
