@@ -121,6 +121,8 @@ pipeline {
                  }
              }
          }
+	}
+}
 /*        stage('Deploy to Kubernets'){
              steps{
                  script{
