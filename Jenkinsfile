@@ -89,8 +89,7 @@ pipeline {
             }
          }
     }
-}
-   /*      stage('TRIVY FS SCAN') {
+         stage('TRIVY FS SCAN') {
             steps {
                 sh "trivy fs . > trivyfs.txt"
             }
@@ -148,4 +147,5 @@ pipeline {
             to: 'ashfaque.s510@gmail.com',                              
             attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
       }
-    }*/    
+    }    
+}
