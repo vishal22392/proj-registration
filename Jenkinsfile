@@ -8,7 +8,7 @@ pipeline {
         APP_NAME = "java-registration-app"
         RELEASE = "1.0.0"
         DOCKER_USER = "vishal22392"
-        DOCKER_PASS = 'Asdfg@123'
+        DOCKER_PASS = 'docker'
         IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
         IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
 	
